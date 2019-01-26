@@ -10,6 +10,7 @@ export type TodosState = {
   byId: {
     [id: number]: Todo
   }
+  ids: number[]
   todoNextId: number
 }
 

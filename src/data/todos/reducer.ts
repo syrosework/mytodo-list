@@ -4,6 +4,7 @@ function initializeState(): TodosState {
   return {
     byId: {},
     todoNextId: 0,
+    ids: [],
   }
 }
 
@@ -23,6 +24,7 @@ export function todosReducer(state: TodosState = initializeState(), action: Todo
             isDone: false,
           }
         },
+        ids: state.ids.concat(id),
         todoNextId: id + 1,
       }
     }
@@ -41,12 +43,13 @@ export function todosReducer(state: TodosState = initializeState(), action: Todo
       }
     }
     case 'REMOVE_TODO_ACTION': {
-      const {id} = action.payload
+      const {id: idToRemove} = action.payload
       const todosByIdCopy = {...state.byId}
-      delete todosByIdCopy[id]
+      delete todosByIdCopy[idToRemove]
       return {
         ...state,
         byId: todosByIdCopy,
+        ids: state.ids.filter((id: number) => id !== idToRemove)
       }
     }
     default:
