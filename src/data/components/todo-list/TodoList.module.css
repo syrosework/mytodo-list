@@ -1,0 +1,15 @@
+.root {
+  padding: 63px 9px 0 9px;
+  margin: 0;
+}
+
+.createTodoButton {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  font-weight: 600;
+  width: 100%;
+  font-size: 24px;
+  text-align: center;
+  color: #979797;
+}

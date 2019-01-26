@@ -5,13 +5,13 @@ import TodoList from "./data/components/todo-list/TodoList"
 class App extends Component {
   render() {
     return (
-      <div className={styles.App}>
-        <header className="App-header">
-          My Todo App
+      <div className={styles.root}>
+        <header className={styles.header}>
+          Todo App
         </header>
         <TodoList/>
       </div>
-    );
+    )
   }
 }
 
