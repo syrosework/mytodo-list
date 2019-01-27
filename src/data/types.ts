@@ -1,8 +1,7 @@
 import {TodosState} from "./todos/types"
+import {SortingState} from "./sortings/types"
 
 export type State = {
-  todos: TodosState
-  sorting: Sorting // dateModified is default sorting
+  readonly todos: TodosState
+  readonly sorting: SortingState // dateModified is default sorting
 }
-
-type Sorting = 'title' | 'titleReverse' | 'dateCreated' | 'dateModified'

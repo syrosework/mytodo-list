@@ -1,0 +1,1 @@
+export type StateLoader<ST> = (stateId: string) => ST | undefined
