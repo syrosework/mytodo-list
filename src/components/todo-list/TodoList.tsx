@@ -1,11 +1,11 @@
 import * as React from "react"
 import styles from './TodoList.module.css'
-import {State} from "../../types"
+import {State} from "../../data/types"
 import {connect} from "react-redux"
 import TodoItem from "../todo/TodoItem"
 import {bindActionCreators, Dispatch} from "redux"
-import {CreateTodoPayload} from "../../todos/types"
-import {createTodo} from "../../todos/actions"
+import {CreateTodoPayload} from "../../data/todos/types"
+import {createTodo} from "../../data/todos/actions"
 
 type PropsFromState = {
   todosIds: number[]

@@ -1,7 +1,7 @@
 import {combineReducers, createStore as createReduxStore, Store} from 'redux'
 import {todosReducer} from "./todos/reducer"
 import {State} from "./types"
-import LocalStorageLoader from "./state-loader/local-storage-loader"
+import LocalStorageLoader from "../state-loader/local-storage-loader"
 import {sortingReducer} from "./sortings/reducer"
 
 function initializeStateFallback(): State {

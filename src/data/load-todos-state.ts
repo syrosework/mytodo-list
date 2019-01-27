@@ -1,4 +1,4 @@
-import {StateLoader} from "./state-loader/types"
+import {StateLoader} from "../state-loader/types"
 import {State} from "./types"
 
 function initializeDefaultState(): State {
