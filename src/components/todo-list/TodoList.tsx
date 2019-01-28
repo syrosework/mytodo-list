@@ -4,11 +4,12 @@ import {GlobalState} from "../../data/types"
 import {connect} from "react-redux"
 import TodoItem from "../todo/TodoItem"
 import {bindActionCreators, Dispatch} from "redux"
-import {CreateTodoPayload} from "../../data/todos/types"
+import {CreateTodoPayload, Todo} from "../../data/todos/types"
 import {createTodo} from "../../data/todos/actions"
+import {selectTodosArraySorted} from "../../data/todos/selectors"
 
 type PropsFromState = {
-  todosIds: number[]
+  todos: Todo[]
   todoNextId: number
 }
 
@@ -18,11 +19,11 @@ type DispatchProps = {
 
 class TodoList extends React.Component<PropsFromState & DispatchProps> {
   render() {
-    const {todosIds} = this.props
+    const {todos} = this.props
     return (
       <ul className={styles.root}>
-        {todosIds.map((id: number) => (
-          <TodoItem key={id} todoId={id}/>
+        {todos.map((todo: Todo) => (
+          <TodoItem key={todo.id} todo={todo}/>
         ))}
         <button
           className={styles.createTodoButton}
@@ -45,7 +46,7 @@ class TodoList extends React.Component<PropsFromState & DispatchProps> {
 
 function mapStateToProps(state: GlobalState): PropsFromState {
   return {
-    todosIds: state.todos.ids,
+    todos: selectTodosArraySorted(state),
     todoNextId: state.todos.todoNextId,
   }
 }

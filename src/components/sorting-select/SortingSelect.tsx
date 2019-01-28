@@ -6,8 +6,6 @@ import {ChangeSortingAction, ChangeSortingPayload, Sorting, SortingState} from "
 import {bindActionCreators, Dispatch} from "redux"
 import {changeSorting} from "../../data/sortings/actions"
 import cn from 'classnames'
-import {MouseOrTouchEvent} from "react-select/lib/Select"
-import {instanceOf} from "prop-types"
 
 type PropsFromState = SortingState
 

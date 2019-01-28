@@ -1,6 +1,5 @@
 import * as React from "react"
 import styles from './TodoItem.module.css'
-import {GlobalState} from "../../data/types"
 import {connect} from "react-redux"
 import {RemoveTodoPayload, Todo, UpdateTodoPayload} from "../../data/todos/types"
 import cn from 'classnames'
@@ -9,10 +8,6 @@ import {removeTodo, updateTodo} from "../../data/todos/actions"
 import TextareaAutosize from 'react-autosize-textarea'
 
 type OwnProps = {
-  todoId: number
-}
-
-type PropsFromState = {
   todo: Todo
 }
 
@@ -21,15 +16,15 @@ type DispatchProps = {
   removeTodo: (payload: RemoveTodoPayload) => void
 }
 
-class TodoItem extends React.Component<OwnProps & PropsFromState & DispatchProps> {
+class TodoItem extends React.Component<OwnProps & DispatchProps> {
   render() {
     const {todo: {isDone, title}} = this.props
     return (
       <li className={styles.root}>
         <TextareaAutosize
           className={styles.title}
-          value={title}
-          onInput={this.onTitleChange}
+          defaultValue={title}
+          onBlur={this.onTitleChange}
         />
         <div className={styles.buttonGroup}>
           <button
@@ -79,13 +74,6 @@ class TodoItem extends React.Component<OwnProps & PropsFromState & DispatchProps
   }
 }
 
-
-function mapStateToProps(state: GlobalState, props: OwnProps): PropsFromState {
-  return {
-    todo: state.todos.byId[props.todoId],
-  }
-}
-
 function mapDispatchToProps(dispatch: Dispatch): DispatchProps {
   return bindActionCreators({
     updateTodo,
@@ -93,4 +81,4 @@ function mapDispatchToProps(dispatch: Dispatch): DispatchProps {
   }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoItem)
+export default connect(null, mapDispatchToProps)(TodoItem)
