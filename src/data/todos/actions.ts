@@ -10,18 +10,14 @@ import {
 export function createTodo(todo: CreateTodoPayload): CreateTodoAction {
   return {
     type: 'CREATE_TODO_ACTION',
-    payload: {
-      ...todo,
-    }
+    payload: todo,
   }
 }
 
 export function updateTodo(updatedProps: UpdateTodoPayload): UpdateTodoAction {
   return {
     type: 'UPDATE_TODO_ACTION',
-    payload: {
-      ...updatedProps,
-    }
+    payload: updatedProps,
   }
 }
 

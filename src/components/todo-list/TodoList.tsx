@@ -1,6 +1,6 @@
 import * as React from "react"
 import styles from './TodoList.module.css'
-import {State} from "../../data/types"
+import {GlobalState} from "../../data/types"
 import {connect} from "react-redux"
 import TodoItem from "../todo/TodoItem"
 import {bindActionCreators, Dispatch} from "redux"
@@ -43,7 +43,7 @@ class TodoList extends React.Component<PropsFromState & DispatchProps> {
   }
 }
 
-function mapStateToProps(state: State): PropsFromState {
+function mapStateToProps(state: GlobalState): PropsFromState {
   return {
     todosIds: state.todos.ids,
     todoNextId: state.todos.todoNextId,

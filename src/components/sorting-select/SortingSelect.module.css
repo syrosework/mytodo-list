@@ -1,0 +1,36 @@
+.root {
+  position: relative;
+  width: 180px;
+}
+
+.value {
+  border-bottom: solid 1px #A7F2E0;
+  color: #A7F2E0;
+}
+
+.optionsList {
+  position: absolute;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  padding: 0;
+  margin: 0;
+  border-radius: 2px;
+}
+
+.optionItem, .value {
+  appearance: none;
+  font-size: 21px;
+  background-color: transparent;
+  border: none;
+  padding: 5px 10px 5px 5px;
+}
+
+.optionItem {
+  color: black;
+}
+
+.optionItem:not(:last-child) {
+  border-bottom: solid 1px #979797;
+}

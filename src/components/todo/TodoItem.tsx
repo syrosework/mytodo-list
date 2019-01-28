@@ -1,6 +1,6 @@
 import * as React from "react"
 import styles from './TodoItem.module.css'
-import {State} from "../../data/types"
+import {GlobalState} from "../../data/types"
 import {connect} from "react-redux"
 import {RemoveTodoPayload, Todo, UpdateTodoPayload} from "../../data/todos/types"
 import cn from 'classnames'
@@ -80,7 +80,7 @@ class TodoItem extends React.Component<OwnProps & PropsFromState & DispatchProps
 }
 
 
-function mapStateToProps(state: State, props: OwnProps): PropsFromState {
+function mapStateToProps(state: GlobalState, props: OwnProps): PropsFromState {
   return {
     todo: state.todos.byId[props.todoId],
   }

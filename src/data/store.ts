@@ -1,23 +1,26 @@
 import {combineReducers, createStore as createReduxStore, Store} from 'redux'
 import {todosReducer} from "./todos/reducer"
-import {State} from "./types"
+import {GlobalState} from "./types"
 import LocalStorageLoader from "../state-loader/local-storage-loader"
-import {sortingReducer} from "./sortings/reducer"
+import {sortingReducer, TITLE_REVERSE_SORTING, TITLE_SORTING} from "./sortings/reducer"
 
-function initializeStateFallback(): State {
+function initializeStateFallback(): GlobalState {
   return {
     todos: {
       byId: {},
       ids: [],
       todoNextId: 0,
     },
-    sorting: 'dateModified',
+    sorting: {
+      currentSorting: TITLE_SORTING,
+      sortings: [TITLE_SORTING, TITLE_REVERSE_SORTING]
+    },
   }
 }
 
-export function createStore(): Store<State> {
+export function createStore(): Store<GlobalState> {
 
-  const stateLoader = new LocalStorageLoader<State>('my-todo')
+  const stateLoader = new LocalStorageLoader<GlobalState>('my-todo')
   const loadedState = stateLoader.loadState(initializeStateFallback())
 
   const store = createReduxStore(
