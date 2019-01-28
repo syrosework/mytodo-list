@@ -12,17 +12,37 @@
   padding: 8px 5px 5px 5px;
   font-size: 17px;
   resize: none;
+  border: none;
+}
+
+.buttonGroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 80px;
+  padding: 10px;
 }
 
 .button {
   appearance: none;
   display: block;
   border: none;
-  min-height: 100%;
-  width: 60px;
-  background-color: whitesmoke;
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  background-image: url(./mark-unchecked.png);
+  background-repeat: no-repeat;
+  background-size: 35px 35px;
 }
 
-.button.buttonIsDone {
-  background-color: #62A87C;
+.buttonCheck {
+  background-image: url(./mark-unchecked.png);
+}
+
+.buttonDelete {
+  background-image: url(./delete.png);
+}
+
+.buttonCheck.buttonIsDone {
+  background-image: url(./mark.png);
 }

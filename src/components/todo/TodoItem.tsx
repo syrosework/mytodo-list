@@ -2,10 +2,10 @@ import * as React from "react"
 import styles from './TodoItem.module.css'
 import {State} from "../../data/types"
 import {connect} from "react-redux"
-import {Todo, UpdateTodoPayload} from "../../data/todos/types"
+import {RemoveTodoPayload, Todo, UpdateTodoPayload} from "../../data/todos/types"
 import cn from 'classnames'
 import {bindActionCreators, Dispatch} from "redux"
-import {updateTodo} from "../../data/todos/actions"
+import {removeTodo, updateTodo} from "../../data/todos/actions"
 import TextareaAutosize from 'react-autosize-textarea'
 
 type OwnProps = {
@@ -18,6 +18,7 @@ type PropsFromState = {
 
 type DispatchProps = {
   updateTodo: (payload: UpdateTodoPayload) => void
+  removeTodo: (payload: RemoveTodoPayload) => void
 }
 
 class TodoItem extends React.Component<OwnProps & PropsFromState & DispatchProps> {
@@ -30,15 +31,27 @@ class TodoItem extends React.Component<OwnProps & PropsFromState & DispatchProps
           value={title}
           onInput={this.onTitleChange}
         />
-        <button
-          onClick={this.onToggleIsDoneButtonClick}
-          className={
-            cn(
-              styles.button,
-              {[styles.buttonIsDone]: isDone},
-            )
-          }
-        />
+        <div className={styles.buttonGroup}>
+          <button
+            onClick={this.onToggleIsDoneButtonClick}
+            className={
+              cn(
+                styles.button,
+                styles.buttonCheck,
+                {[styles.buttonIsDone]: isDone},
+              )
+            }
+          />
+          <button
+            onClick={this.onDeleteButtonClick}
+            className={
+              cn(
+                styles.button,
+                styles.buttonDelete,
+              )
+            }
+          />
+        </div>
       </li>
     )
   }
@@ -59,7 +72,13 @@ class TodoItem extends React.Component<OwnProps & PropsFromState & DispatchProps
       isDone: !isDone,
     })
   }
+
+  onDeleteButtonClick = () => {
+    const {id} = this.props.todo
+    this.props.removeTodo({id})
+  }
 }
+
 
 function mapStateToProps(state: State, props: OwnProps): PropsFromState {
   return {
@@ -70,6 +89,7 @@ function mapStateToProps(state: State, props: OwnProps): PropsFromState {
 function mapDispatchToProps(dispatch: Dispatch): DispatchProps {
   return bindActionCreators({
     updateTodo,
+    removeTodo,
   }, dispatch)
 }
 
