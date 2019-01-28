@@ -29,7 +29,7 @@ class TodoList extends React.Component<PropsFromState & DispatchProps> {
           className={styles.createTodoButton}
           onClick={this.onCreateTodoButtonClick}
         >
-          +
+          Create Todo +
         </button>
       </ul>
     )
