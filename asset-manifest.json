@@ -1,0 +1,14 @@
+{
+  "main.css": "/mytodo-list/static/css/main.10a117a1.chunk.css",
+  "main.js": "/mytodo-list/static/js/main.3749b22a.chunk.js",
+  "main.js.map": "/mytodo-list/static/js/main.3749b22a.chunk.js.map",
+  "static/js/1.08102e51.chunk.js": "/mytodo-list/static/js/1.08102e51.chunk.js",
+  "static/js/1.08102e51.chunk.js.map": "/mytodo-list/static/js/1.08102e51.chunk.js.map",
+  "runtime~main.js": "/mytodo-list/static/js/runtime~main.82508ed4.js",
+  "runtime~main.js.map": "/mytodo-list/static/js/runtime~main.82508ed4.js.map",
+  "static/css/main.10a117a1.chunk.css.map": "/mytodo-list/static/css/main.10a117a1.chunk.css.map",
+  "static/media/TodoItem.module.css": "/mytodo-list/static/media/delete.4ff40143.png",
+  "index.html": "/mytodo-list/index.html",
+  "precache-manifest.51e0d732dc438509937849d8ee78bfe1.js": "/mytodo-list/precache-manifest.51e0d732dc438509937849d8ee78bfe1.js",
+  "service-worker.js": "/mytodo-list/service-worker.js"
+}
