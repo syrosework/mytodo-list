@@ -2,6 +2,8 @@
 
 Just simple TODO-list on React+Redux+Typescript stack
 
+[App](https://syrosework.github.io/mytodo-list/)
+
 ## Functionality
 
 - Add new TODO
